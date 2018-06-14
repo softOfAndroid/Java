@@ -12,7 +12,7 @@ import java.util.List;
 public class Sort {
 
 	public static void main(String[] args) {
-		List<int[]> list = new ArrayList<int[]>();
+		List<int[]> list = new ArrayList<>();
 		for (int i = 0; i < 6; i++) {
 			list.add(new int[]{49, 38, 65, 76, 13, 27, 34, 12, 64, 5, 4, 62, 54, 17, 12, 23, 1});
 		}
@@ -71,7 +71,7 @@ public class Sort {
 
 	/**
 	 * 希尔排序：也称递减增量排序算法，是插入排序的一种更高效的改进版本
-	 * @param array
+	 * @param
 	 */
 	private static void shellSort(int[] data) {
 		int j = 0;
