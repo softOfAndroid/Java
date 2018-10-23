@@ -1,4 +1,4 @@
-package com.zxy;
+package com.zxy.algorithms;
 
 import java.util.ArrayList;
 import java.util.Arrays;

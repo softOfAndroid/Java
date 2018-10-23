@@ -1,4 +1,4 @@
-package com.zxy;
+package com.zxy.datastruct;
 
 import java.util.Arrays;
 import java.util.HashMap;
