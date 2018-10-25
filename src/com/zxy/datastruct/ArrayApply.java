@@ -1,8 +1,6 @@
 package com.zxy.datastruct;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 数组:具有相同类型的若干元素按无序的形式排列的固定大小的数据元素集合叫做数组
@@ -25,7 +23,6 @@ public class ArrayApply {
         arr3[3] = 5;
         arr3[4] = 9;
         arr3[5] = 6;
-        //arr3[6] 没有复制则为 0;
         System.out.println(Arrays.toString(arr1));
         System.out.println(Arrays.toString(arr2));
         System.out.println(Arrays.toString(arr3));
@@ -80,13 +77,84 @@ public class ArrayApply {
             }
             map.put(nums[i], i);
         }
-        throw new IllegalArgumentException("No two sum solution");
+        return new int[0];
+    }
+
+    /**
+     * 5. 查找数组中最小的和第二小的数
+     *
+     * @param nums
+     * @return
+     */
+    public static int[] findSmallestAndSecondSmallest(int[] nums) {
+        // 3,5,2,1,6,7,4,8,1
+        if (nums.length < 2) {
+            return new int[0];
+        }
+        int smallest = nums[0];
+        int secondSmallest = nums[1];
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] < smallest) {
+                secondSmallest = smallest;
+                smallest = nums[i];
+            } else if (nums[i] < secondSmallest && nums[i] != smallest) {
+                secondSmallest = nums[i];
+            }
+        }
+        return new int[]{smallest, secondSmallest};
+    }
+
+    /**
+     * 6. 删除数组中重复的元素
+     *
+     * @param nums
+     */
+    public static Object[] deleteRepeat(int[] nums) {
+        // 3,4, 3, 5, 8, 3, 5, 7, 9
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (!list.contains(nums[i])) {
+                list.add(nums[i]);
+            }
+        }
+        return list.toArray();
+    }
+
+    /**
+     * 7. 查找第一个没有重复的数组元素
+     *
+     * @return
+     */
+    public static int firstNotRepeat(int[] nums) {
+
+        return 0;
+    }
+
+    /**
+     * 8. 合并2个排序好的数组
+     *
+     * @param arr1
+     * @param arr2
+     */
+    public static void mergeArray(int[] arr1, int[] arr2) {
+
+    }
+
+    /**
+     * 9. 重新排列数组中的正数和负数
+     *
+     * @param nums
+     */
+    public static void reSort(int[] nums) {
+
     }
 
     public static void main(String[] args) {
 //        insertArray();
 //        deleteArray();
-        System.out.println(Arrays.toString(twoSum(new int[]{1, 3, 5, 8, 9}, 10)));
+//        System.out.println(Arrays.toString(twoSum(new int[]{1, 3, 5, 8, 9}, 10)));
+//        System.out.println(Arrays.toString(findSmallestAndSecondSmallest(new int[]{3, 5, 9, 1, 6, 7, 4, 8, 0})));
+        System.out.println(Arrays.toString(deleteRepeat(new int[]{3, 4, 3, 5, 8, 3, 5, 7, 9})));
     }
 
 }
