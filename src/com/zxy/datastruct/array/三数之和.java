@@ -14,6 +14,11 @@ public class 三数之和 {
         for (int i = 0; i < lists.size(); i++) {
             System.out.println(Arrays.toString(lists.get(i).toArray()));
         }
+        System.out.println("*********************************");
+        int[] arr = {-1, 2, 1, -4};
+        int target = 1;
+        int temp = threeSumClosest(arr, target);
+        System.out.println("最接近target之和为=" + temp);
     }
 
     /**
@@ -38,7 +43,6 @@ public class 三数之和 {
                     list.add(nums[j]);
                     list.add(nums[k]);
                     set.add(list);
-                    System.out.println("i = " + i + " ,j = " + j + " ,k = " + k + " -----> " + Arrays.toString(list.toArray()));
                     while (j < k && nums[j] == nums[j + 1]) {
                         j++;
                     }
@@ -64,8 +68,29 @@ public class 三数之和 {
      * 如: 给定数组 nums = [-1，2，1，-4], 和 target = 1.
      * 与 target 最接近的三个数的和为 2. (-1 + 2 + 1 = 2).
      */
-    public int threeSumClosest(int[] nums, int target) {
+    public static int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums);//[-4, -1, 1, 2]
+        int sum = Integer.MAX_VALUE;
+        int temp = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int j = i + 1;
+            int k = nums.length - 1;
+            while (j < k) {
+                temp = nums[i] + nums[j] + nums[k];
+                int abs = Math.abs(target - temp);
+                if (sum > abs) {
+                    sum = abs;
+                }
+                if (temp > 0) {
+                    k--;
+                } else if (temp < 0) {
+                    j++;
+                } else {
+                    break;
+                }
 
-        return 0;
+            }
+        }
+        return temp;
     }
 }
